@@ -1,0 +1,117 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #ccc;
+}
+
+/**** HEADER ****/
+
+.header {
+  padding: 2em 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 2em;
+}
+
+/**** BUTTON DIV ****/
+
+.buttonDiv {
+  margin: 1rem 0 2rem 0;
+  text-align: center;
+}
+
+#addBookButton {
+  padding: 4px 8px;
+  border: 1px solid #000;
+}
+
+#addBookButton:active {
+  transform: scale(0.97);
+}
+
+/**** BOOK LIBRARY ****/
+
+#bookLibrary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.bookCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 5px 5px;
+  height: 300px;
+  width: 201px;
+  border: 1px solid #000;
+}
+
+/**** FORM CONTAINER ****/
+
+#formContainer {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+#bookForm {
+  height: 600px;
+  width: 500px;
+  border: 2px solid #000;
+  border-radius: 10px;
+  background-color: #aaa;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/**** FORM ****/
+
+#bookForm input {
+  margin-top: 4px;
+  width: 300px;
+}
+
+.formTitleContainer {
+  margin: 1rem 0;
+  text-align: center;
+  font-size: 2rem;
+}
+
+.formTitle {
+  margin-top: -2rem;
+}
+
+#formAddBookButton {
+  padding: 6px 10px;
+}
+
+#formAddBookButton:active {
+  transform: scale(0.97);
+}
+
+.notRead {
+  background-color: #cba8a8;
+}
+
+.read {
+  background-color: #accba8;
+}
