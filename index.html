@@ -5,10 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TOP Library</title>
-    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <script src="script.js    "></script>
+    <header class="header">
+      <h1 class="title">TOP Library</h1>
+    </header>
+    <div class="buttonDiv">
+      <button id="addBookButton">Add Book</button>
+    </div>
+    <main id="bookLibrary">
+      <!-- <div class="bookCard">
+        <p class="bookTitle">Title:</p>
+        <p class="bookAuthor">Author:</p>
+        <p class="bookPages">Pages:</p>
+        <p class="bookRead">Read:</p>
+      </div> -->
+    </main>
+    <div id="formContainer">
+      <div id="bookForm">
+        <div class="formTitleContainer">
+          <p class="formTitle">Add a Book!</p>
+        </div>
+        <div class="formBookTitleContainer">
+          <p class="formBookTitle">Title:</p>
+          <input
+            type="text"
+            placeholder="Enter a title..."
+            id="formBookTitleInput"
+          />
+        </div>
+        <div class="formBookAuthorContainer">
+          <p class="formBookAuthor">Author:</p>
+          <input
+            type="text"
+            placeholder="Enter an author..."
+            id="formBookAuthorInput"
+          />
+        </div>
+        <div class="formBookPagesContainer">
+          <p class="formBookPages">Pages:</p>
+          <input
+            type="number"
+            placeholder="Enter page count..."
+            id="formBookPagesInput"
+          />
+        </div>
+        <div class="formBookReadContainer">
+          <p class="formBookRead">Read:</p>
+          <input type="checkbox" id="formBookReadInput" />
+        </div>
+        <div class="formButtonContainer">
+          <button id="formAddBookButton">Add Book</button>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
   </body>
 </html>
