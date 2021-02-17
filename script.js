@@ -93,6 +93,7 @@ function addBook() {
   let book = new Book(bookTitle, bookAuthor, bookPages, bookRead);
   addBookToLibrary(book);
   createBook(bookTitle, bookAuthor, bookPages, bookRead, book);
+  createStorage(myLibrary);
 }
 
 formAddBookButton.addEventListener("click", addBook);
@@ -117,3 +118,19 @@ Book.prototype.deleteBook = function (bookCard) {
   myLibrary.splice(bookIndex, 1);
   bookLibrary.removeChild(bookCard);
 };
+
+function createStorage(arr) {
+  localStorage.setItem("myLibrary", JSON.stringify(arr));
+}
+
+function addStored(storage) {
+  let stored = JSON.parse(localStorage.getItem(storage));
+  if (stored === null) {
+    return;
+  }
+  for (let i = 0; i < stored.length; i++) {
+    myLibrary.push(stored[i]);
+  }
+}
+
+addStored("myLibrary");
