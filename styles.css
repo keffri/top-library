@@ -26,14 +26,19 @@ body {
 .buttonDiv {
   margin: 1rem 0 2rem 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-#addBookButton {
+.buttonDiv button {
+  margin: 4px 0px;
   padding: 4px 8px;
   border: 1px solid #000;
 }
 
-#addBookButton:active {
+.buttonDiv button:active {
   transform: scale(0.97);
 }
 
