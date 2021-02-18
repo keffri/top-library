@@ -104,11 +104,13 @@ Book.prototype.changeStatus = function (bookCard, bookRead) {
     bookCard.classList.add("notRead");
     bookRead.textContent = "Not read";
     this.read = false;
+    createStorage(myLibrary);
   } else if (this.read === false) {
     bookCard.classList.remove("notRead");
     bookCard.classList.add("read");
     bookRead.textContent = "Read";
     this.read = true;
+    createStorage(myLibrary);
   }
 };
 
@@ -117,6 +119,7 @@ Book.prototype.deleteBook = function (bookCard) {
   let bookIndex = myLibrary.indexOf(this);
   myLibrary.splice(bookIndex, 1);
   bookLibrary.removeChild(bookCard);
+  createStorage(myLibrary);
 };
 
 function createStorage(arr) {
@@ -133,4 +136,35 @@ function addStored(storage) {
   }
 }
 
+function createStored() {
+  let stored = JSON.parse(localStorage.getItem("myLibrary"));
+  if (stored === null) {
+    return;
+  }
+  for (let i = 0; i < stored.length; i++) {
+    let book = new Book(stored[i], stored[i], stored[i], stored[i]);
+    createBook(
+      stored[i].title,
+      stored[i].author,
+      stored[i].pages,
+      stored[i].read,
+      book
+    );
+  }
+}
+
+function clearStorage() {
+  localStorage.clear();
+  myLibrary = [];
+  let bookLibrary = document.getElementById("bookLibrary");
+  while (bookLibrary.firstChild) {
+    bookLibrary.removeChild(bookLibrary.lastChild);
+  }
+}
+
+const clearLibraryButton = document.getElementById("clearLibrary");
+
+clearLibraryButton.addEventListener("click", clearStorage);
+
 addStored("myLibrary");
+createStored();
