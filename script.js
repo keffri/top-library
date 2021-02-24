@@ -1,10 +1,36 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+
+  changeStatus(bookCard, bookRead) {
+    if (this.read === true) {
+      bookCard.classList.remove("read");
+      bookCard.classList.add("notRead");
+      bookRead.textContent = "Not read";
+      this.read = false;
+      createStorage(myLibrary);
+    } else if (this.read === false) {
+      bookCard.classList.remove("notRead");
+      bookCard.classList.add("read");
+      bookRead.textContent = "Read";
+      this.read = true;
+      createStorage(myLibrary);
+    }
+  }
+
+  deleteBook(bookCard) {
+    let bookLibrary = document.getElementById("bookLibrary");
+    let bookIndex = myLibrary.indexOf(this);
+    myLibrary.splice(bookIndex, 1);
+    bookLibrary.removeChild(bookCard);
+    createStorage(myLibrary);
+  }
 }
 
 function addBookToLibrary(book) {
@@ -97,30 +123,6 @@ function addBook() {
 }
 
 formAddBookButton.addEventListener("click", addBook);
-
-Book.prototype.changeStatus = function (bookCard, bookRead) {
-  if (this.read === true) {
-    bookCard.classList.remove("read");
-    bookCard.classList.add("notRead");
-    bookRead.textContent = "Not read";
-    this.read = false;
-    createStorage(myLibrary);
-  } else if (this.read === false) {
-    bookCard.classList.remove("notRead");
-    bookCard.classList.add("read");
-    bookRead.textContent = "Read";
-    this.read = true;
-    createStorage(myLibrary);
-  }
-};
-
-Book.prototype.deleteBook = function (bookCard) {
-  let bookLibrary = document.getElementById("bookLibrary");
-  let bookIndex = myLibrary.indexOf(this);
-  myLibrary.splice(bookIndex, 1);
-  bookLibrary.removeChild(bookCard);
-  createStorage(myLibrary);
-};
 
 function createStorage(arr) {
   localStorage.setItem("myLibrary", JSON.stringify(arr));
